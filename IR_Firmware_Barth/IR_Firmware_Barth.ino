@@ -59,6 +59,7 @@ unsigned int bufferUPSMALL[rawlen] = {1250,450,1200,450,1200,450,1200,450,400,12
 unsigned int bufferDOWNSMALL[rawlen] = {1300,400,1250,400,1250,400,1200,450,400,1200,450,1200,450,1200,1250,450,400,1200,450,1200,450,1200,450,1200,400,1250,400,1250,400,1250,1250,400,1250,400,1250,400,1250,400,400,1200,450,1200,450,1200,450,1200,1250,450,1200,450,1200,450,400,1200,1250,400,450,1200,450,1200,1250,400,1250};
 
 // Command mute Apple remote
+// TODO: use specific adress -> command for remote. This is only the command (other remotes can trigger the same action).
 const String receiverMuteButtonApple = "d";
 
 // State (initial)

@@ -79,7 +79,6 @@ unsigned int bufferDOWNSMALL[rawlen] = {1300,400,1250,400,1250,400,1200,450,400,
 
 // Commands beamer remote (epson). This can be different for other epson remotes!
 // TODO: use specific adress -> command for remote (NEC). This is only the command (other remotes can trigger the same action).
-// Use: IrSender.sendNEC(0x5583, 0x90, 0); where 0x5583 = adress and 0x90 the command and 0 the number of repeats.
 const String receiverRollUp = "5d";
 const String receiverRollDown = "5f";
 const String receiverRollUpStep = "5a";
