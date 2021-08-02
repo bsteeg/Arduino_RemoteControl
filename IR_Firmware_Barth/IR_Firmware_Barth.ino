@@ -4,7 +4,7 @@
  * Setup: No capacitors installed. Has always power. Placed where the receiver is visible for the apple remote and IR led can send commands to the projectionscreen and beamer.
  * Apple remote button configured: mute (double tap). Buttons configurable are the volume up, down and mute button. Double tap will not mess with the amplifier if configured because you will unmute it.
  * Double Tap mute button action: rolldown projection screen and start beamer or rollup projection screen and shutdown beamer according to the stored state. 
- * State in the beginning will be on poweroff.
+ * State in the beginning will be on poweroff / rolledup.
  *
  *
  ************************************************************************************
@@ -45,11 +45,12 @@
 #define STATE_ROLLEDUP_BEAMER_OFF 1
 #define STATE_ROLLEDDOWN_BEAMER_ON 2
 
-// Time Limit double click button. Will reset.
-#define MAX_TIME_LIMIT_BETWEEN_CLICKS 2000 // 2000ms
-#define MIN_TIME_LIMIT_BETWEEN_CLICKS 200 // 500ms
+// Time Limit double click button. Will reset. Can be finetuned if needed.
+#define MAX_TIME_LIMIT_BETWEEN_CLICKS 2000  // 2000ms
+#define MIN_TIME_LIMIT_BETWEEN_CLICKS 200   // 500ms
 
 // Commands projection screen
+// Special Thanks to Alex/Killergeek
 const uint8_t rawlen = 64;
 unsigned int bufferUP[rawlen] = {1250,350,1300,350,1300,350,1300,400,400,1200,450,1200,450,1200,450,1200,450,1200,450,1200,450,1200,1250,400,450,1200,400,1250,400,1250,1250,400,1250,400,1250,400,400,1250,1250,350,1300,400,1250,350,450,1200,1250,400,1250,400,1250,400,450,1200,1250,400,1250,400,1250,400,1250,400,450};
 unsigned int bufferSTOP[rawlen] = {1300,400,1250,400,1250,400,1250,400,400,1200,450,1200,450,1200,450,1200,450,1200,450,1200,1250,400,450,1200,450,1200,450,1200,450,1200,1250,400,1250,400,1250,400,400,1250,400,1250,1250,400,1250,350,450,1200,450,1200,1300,350,1300,350,450,1200,1250,400,1250,400,1250,400,450,1200,1250};
@@ -70,9 +71,6 @@ unsigned long timeNow = 0;
 
 void setup() 
 {
-      //pinMode(LED_BUILTIN, OUTPUT);
-      //Serial.begin(115200);
-      //Serial.println(F("Starting!"));  
       IrSender.begin(IR_SEND_PIN, ENABLE_LED_FEEDBACK); // Specify send pin and enable feedback LED at default feedback LED pin
       IrReceiver.begin(RECV_PIN, ENABLE_LED_FEEDBACK); // Start the receiver, enable feedback LED, take LED feedback pin from the internal boards definition
       IrSender.enableIROut(38);
