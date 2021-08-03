@@ -37,6 +37,7 @@
 #include "PinDefinitionsAndMore.h"
 #include <IRremote.h>
 
+
 #define DELAY_SCREEN_DOWN 17000           // Setting Delay screen
 #define DELAY_QUICK_WAIT 500
 #define RECV_PIN 7                        // IR receiver
